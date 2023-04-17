@@ -5,7 +5,8 @@ import express, {
 import "dotenv";
 import passport from "passport";
 import session from "express-session";
-import path from "path";
+// import path from "path";
+import cors from "cors";
 import logger from "morgan";
 import { PrismaSessionStore } from "@quixo3/prisma-session-store";
 
@@ -21,10 +22,10 @@ const app = express();
 express.urlencoded({ extended: true });
 app.use(express.json());
 app.use(logger("dev"))
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "..", "client", "dist")));
-}
-
+// if (process.env.NODE_ENV === "production") {
+// 	app.use(express.static(path.join(__dirname, "..", "client", "dist")));
+// }
+app.use(cors());
 app.use(
 	session({
 		name: "session",
@@ -58,11 +59,11 @@ app.get(
 
 app.use("/api", userRoutes, [isLoggedIn, timerRoutes]); // this needs to run after api/get-user because the logout button doesn't work on the front end
 
-if (process.env.NODE_ENV === "production") {
-	app.get("*", (req, res) => {
-		res.sendFile(path.join(__dirname, "..", "client", "dist", "index.html"));
-	});
-}
+// if (process.env.NODE_ENV === "production") {
+// 	app.get("*", (req, res) => {
+// 		res.sendFile(path.join(__dirname, "..", "client", "dist", "index.html"));
+// 	});
+// }
 
 app.listen(4000, () => {
 	console.log("fridge running test, ", 4000);

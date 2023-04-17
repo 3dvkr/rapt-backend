@@ -1,4 +1,4 @@
-import { Router, Request, Response } from "express";
+import { Router, Request, Response, Express } from "express";
 import passport from "passport";
 import argon2id from "argon2";
 
@@ -33,7 +33,7 @@ router.get("/login", (req: Request, res: Response) => {
 });
 
 router.post("/login", (req, res, next) =>
-	passport.authenticate("local", (err, user, options) => {
+	passport.authenticate("local", (err:any, user: Express.User, options: Record<string, string>) => {
 		if (err) {
 			next(err);
 		} else if (user) {
