@@ -1,7 +1,5 @@
 # Rapt
 
-Live site: https://rapt.up.railway.app
-
 ## Motivation
 
 Rapt is a full-stack time-tracker and pomodoro app, to address concerns of a neurodiverse focus group reporting that many productivity apps and systems were failing them.
