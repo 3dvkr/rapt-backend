@@ -33,12 +33,8 @@ The app is designed to let the user choose what 'type' of session they'd like to
 git clone https://github.com/3dvkr/rapt.git
 ```
 
-2. Install NPM packages
-```
-npm install
-cd client
-npm install
-```
+2. Install NPM packages `npm install`.
+
 3. Set up a PostgreSQL-as-a-service instance, e.g. on ElephantSQL or Railway. 
 
 4. Fill in the values in the `.env.example` file, and rename it to `.env`. The database url is a string provided by the PostgreSQL service.
